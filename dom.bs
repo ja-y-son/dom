@@ -4946,12 +4946,24 @@ and an optional <a for=/>document</a> <dfn export for="clone a node"><var>docume
  <li><p>If <var>parent</var> is non-null, then <a for=/>append</a> <var>copy</var> to
  <var>parent</var>.
 
- <li><p>If <var>subtree</var> is true, then for each <var>child</var> of <var>node</var>'s
- <a for=tree>children</a>, in <a>tree order</a>: <a>clone a node</a> given <var>child</var> with
- <a for="clone a node"><i>document</i></a> set to <var>document</var>,
- <a for="clone a node"><i>subtree</i></a> set to <var>subtree</var>,
- <a for="clone a node"><i>parent</i></a> set to <var>copy</var>, and
- <a for="clone a node"><i>fallbackRegistry</i></a> set to <var>fallbackRegistry</var>.
+ <li>
+  <p>If <var>subtree</var> is true:
+
+  <ol>
+   <li><p>Let <var>childFallbackRegistry</var> be <var>fallbackRegistry</var>.
+
+   <li><p>If <var>node</var> is an <a for=/>element</a> and its
+   <a for=Element>keep custom element registry null</a> is true, then set
+   <var>childFallbackRegistry</var> to null.
+
+   <li><p>For each <var>child</var> of <var>node</var>'s <a for=tree>children</a>, in
+   <a>tree order</a>: <a>clone a node</a> given <var>child</var> with
+   <a for="clone a node"><i>document</i></a> set to <var>document</var>,
+   <a for="clone a node"><i>subtree</i></a> set to <var>subtree</var>,
+   <a for="clone a node"><i>parent</i></a> set to <var>copy</var>, and
+   <a for="clone a node"><i>fallbackRegistry</i></a> set to
+   <var>childFallbackRegistry</var>.
+  </ol>
 
  <li>
   <p>If <var>node</var> is an <a for=/>element</a>, <var>node</var> is a
