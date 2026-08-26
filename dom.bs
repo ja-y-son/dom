@@ -4952,7 +4952,8 @@ and an optional <a for=/>document</a> <dfn export for="clone a node"><var>docume
   <ol>
    <li><p>Let <var>childFallbackRegistry</var> be <var>fallbackRegistry</var>.
 
-   <li><p>If <var>node</var> is an <a for=/>element</a> and its
+   <li><p>If <var>node</var> is an <a for=/>element</a>, its
+   <a for=Element>custom element registry</a> is null, and its
    <a for=Element>keep custom element registry null</a> is true, then set
    <var>childFallbackRegistry</var> to null.
 
